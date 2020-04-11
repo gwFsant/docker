@@ -1,14 +1,6 @@
 version: "3"
 
-services:
-  nginx:
-    image: nginx:alpine #Esta realizado para un servidor (no varios)
-    volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
-    links:
-      - app     
-    ports:
-      - "4000-4010:8008"
+services:  
   app:
     #image: platziapp
     build: .
@@ -24,3 +16,12 @@ services:
 
   db:
     image: mongo
+
+  #nginx:
+  #  image: nginx:alpine #Esta realizado para un servidor (no varios)
+  #  volumes:
+  #    - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+  #  links:
+  #    - app     
+  #  ports:
+  #    - "4000-4010:8008"
